@@ -25,8 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = User::with('socials')->first();
-//        dd($user);
+        $user = User::with([
+            'socials',
+            'experiences',
+            'skills',
+            'certificates',
+            'interests',
+            'educations'
+        ])
+            ->where('status', '=', true)
+            ->first();
         return view('index', compact('user'));
     }
 }

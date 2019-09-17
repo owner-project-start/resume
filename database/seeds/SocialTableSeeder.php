@@ -13,16 +13,17 @@ class SocialTableSeeder extends Seeder
      */
     public function run()
     {
+        Social::truncate();
         $user = User::find(1);
 
         $socials = [
             [
                 'icon' => 'fab fa-github',
-                'link' => '#',
+                'link' => 'https://github.com/ngouyuong',
             ],
             [
                 'icon' => 'fab fa-facebook-f',
-                'link' => '#',
+                'link' => 'https://www.facebook.com/uyoung.ngo?ref=bookmarks',
             ]
         ];
 

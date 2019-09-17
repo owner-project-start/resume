@@ -5,7 +5,8 @@
         <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
       </span>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -27,6 +28,11 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
+            </li>
+            <li data-v-718c1925="" class="nav-item">
+                <a data-v-718c1925="" href="javascript:void(0)" class="nav-link js-scroll-trigger">
+                    All right reserve @ 2019
+                </a>
             </li>
         </ul>
     </div>

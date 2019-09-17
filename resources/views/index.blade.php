@@ -1,81 +1,159 @@
 @extends('layouts.master')
 
+@section('style')
+    <style>
+        .navbar {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            padding: .5rem 0;
+        }
+    </style>
+@endsection
+
 @section('about')
     <div class="w-100">
-        <h1 class="mb-0">{{ $user->last_name }}
-            <span class="text-primary">{{ $user->first_name }}</span>
-        </h1>
-        <div class="subheading mb-5">#n {{ $user->home_number }}, khan {{ $user->khan }}, songkat {{ $user->songkat }}
-            , {{ $user->city }} · (+855) {{ $user->phone }} ·
-            <a href="mailto:{{$user->email}}">{{ $user->email }}</a>
-        </div>
-        <p class="lead mb-5">{{ $user->description }}</p>
-        <div class="social-icons">
-            @foreach($user->socials as $social)
-                <a href="{{ $social->link }}">
-                    <i class="{{ $social->icon }}"></i>
-                </a>
-            @endforeach
-        </div>
+        @if(isset($user))
+            <h1 class="mb-0">{{ $user->last_name }}
+                <span class="text-primary">{{ $user->first_name }}</span>
+            </h1>
+            <div class="subheading mb-5">#n {{ $user->home_number }}, khan {{ $user->khan }},
+                songkat {{ $user->songkat }}
+                , {{ $user->city }} · (+855) {{ $user->phone }} ·
+                <a href="mailto:{{$user->email}}">{{ $user->email }}</a>
+            </div>
+            <p class="lead mb-5">{{ $user->description }}</p>
+            <div class="social-icons">
+                @foreach($user->socials as $social)
+                    <a href="{{ $social->link }}">
+                        <i class="{{ $social->icon }}"></i>
+                    </a>
+                @endforeach
+            </div>
+        @else
+            <h1 class="mb-0">
+                <span class="text-primary">Error</span>
+            </h1>
+        @endif
     </div>
 @endsection
 
 @section('experience')
     <div class="w-100">
         <h2 class="mb-5">Experience</h2>
+        @if(count($user->experiences) > 0)
+            @foreach($user->experiences as $experience)
+                <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="resume-content">
+                        <h3 class="mb-0">{{ $experience->position }}</h3>
+                        <div class="subheading mb-3">{{ $experience->company }}</div>
+                        <p>
+                            {{ $experience->content }}
+                        </p>
+                    </div>
+                    <div class="resume-date text-md-right">
+                        <span class="text-primary text-capitalize">{{ $experience->start_date->isoformat('MMMM Y') }} - @if($experience->end_date === null)
+                                present @else {{ $experience->end_date->isoformat('MMMM Y') }} @endif</span>
+                    </div>
+                </div>
+            @endforeach
+        @else
+            <h1 class="mb-0">
+                <span class="text-primary">Error</span>
+            </h1>
+        @endif
+    </div>
+@endsection
 
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="resume-content">
-                <h3 class="mb-0">Senior Web Developer</h3>
-                <div class="subheading mb-3">Intelitec Solutions</div>
-                <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day,
-                    going forward, a new normal that has evolved from generation X is on the runway heading towards a
-                    streamlined cloud solution. User generated content in real-time will have multiple touchpoints for
-                    offshoring.</p>
-            </div>
-            <div class="resume-date text-md-right">
-                <span class="text-primary">March 2013 - Present</span>
-            </div>
-        </div>
+@section('education')
+    <div class="w-100">
+        <h2 class="mb-5">Education</h2>
+        @if(count($user->educations) > 0)
+            @foreach($user->educations as $education)
+                <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="resume-content">
+                        <h3 class="mb-0">{{ $education->study_at }}</h3>
+                        <div class="subheading mb-3">{{ $education->level }}</div>
+                        <div class="text-capitalize">{{ $education->content }}</div>
+                    </div>
+                    <div class="resume-date text-md-right">
+                        <span class="text-primary">{{ $education->start_date }} - @if($education->end_date === null) N/A @else {{ $education->end_date }} @endif</span>
+                    </div>
+                </div>
+            @endforeach
+        @else
+        @endif
+    </div>
+@endsection
 
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="resume-content">
-                <h3 class="mb-0">Web Developer</h3>
-                <div class="subheading mb-3">Intelitec Solutions</div>
-                <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override
-                    the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the
-                    information highway will close the loop on focusing solely on the bottom line.</p>
-            </div>
-            <div class="resume-date text-md-right">
-                <span class="text-primary">December 2011 - March 2013</span>
-            </div>
-        </div>
+@section('skill')
+    <div class="w-100">
+        <h2 class="mb-5">Skills</h2>
+        <div class="subheading mb-3">Programming Languages &amp; Tools</div>
+        @if(count($user->skills) > 0)
+            <ul class="fa-ul mb-0">
+                @foreach($user->skills as $skill)
+                    @if(!$skill->active)
+                        <li>
+                            <i class="fa-li fa fa-check"></i>
+                            {{ $skill->name }}
+                        </li>
+                    @else
+                        <li style="color: #bd5d38">
+                            <i class="fa-li fa fa-check"></i>
+                            {{ $skill->name }}
+                        </li>
+                    @endif
+                @endforeach
+            </ul>
+        @else
+            <h1 class="mb-0">
+                <span class="text-primary">Error</span>
+            </h1>
+        @endif
+    </div>
+@endsection
 
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-            <div class="resume-content">
-                <h3 class="mb-0">Junior Web Designer</h3>
-                <div class="subheading mb-3">Shout! Media Productions</div>
-                <p>Podcasting operational change management inside of workflows to establish a framework. Taking
-                    seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball
-                    while performing a deep dive on the start-up mentality to derive convergence on cross-platform
-                    integration.</p>
-            </div>
-            <div class="resume-date text-md-right">
-                <span class="text-primary">July 2010 - December 2011</span>
-            </div>
-        </div>
+@section('interests')
+    <div class="w-100">
+        <h2 class="mb-5">Interests</h2>
+        @if(count($user->interests) > 0)
+            @foreach($user->interests as $interest)
+                <p>{{ $interest->description }}</p>
+            @endforeach
+        @else
+            <h1 class="mb-0">
+                <span class="text-primary">Error</span>
+            </h1>
+        @endif
+    </div>
+@endsection
 
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
-            <div class="resume-content">
-                <h3 class="mb-0">Web Design Intern</h3>
-                <div class="subheading mb-3">Shout! Media Productions</div>
-                <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate
-                    B2C users after installed base benefits. Dramatically visualize customer directed convergence
-                    without revolutionary ROI.</p>
-            </div>
-            <div class="resume-date text-md-right">
-                <span class="text-primary">September 2008 - June 2010</span>
-            </div>
-        </div>
+@section('certificate')
+    <div class="w-100">
+        <h2 class="mb-5">Awards &amp; Certifications</h2>
+        @if(count($user->certificates) > 0)
+            <ul class="fa-ul mb-0">
+                @foreach($user->certificates as $certificate)
+                    <li class="text-capitalize">
+                        <i class="fa-li fa fa-certificate text-warning"></i>
+                        {{ $certificate->name }} -
+                        <a href="http://www.moeys.gov.kh/en/" target="_blank" class="no-link">
+                            {{ $certificate->from }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        @else
+            <h1 class="mb-0">
+                <span class="text-primary">Error</span>
+            </h1>
+        @endif
     </div>
 @endsection

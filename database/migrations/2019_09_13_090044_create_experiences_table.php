@@ -13,9 +13,9 @@ class CreateExperiencesTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('position');
             $table->string('company');
-            $table->string('content');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            $table->text('content');
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')
