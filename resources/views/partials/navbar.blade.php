@@ -1,23 +1,23 @@
 <ul class="navbar-nav mr-auto">
-    <li class="nav-item active">
+    <li class="nav-item '@if(Request::is('profile')) active @endif'">
         <a class="nav-link" href="{{ route('profile') }}">Profile</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Experiences</a>
+    <li class="nav-item '@if(Request::is('experience')) active @endif'">
+        <a class="nav-link" href="{{ route('experience') }}">Experiences</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Education</a>
+    <li class="nav-item '@if(Request::is('education')) active @endif'">
+        <a class="nav-link" href="{{ route('education') }}">Education</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Skills</a>
+    <li class="nav-item '@if(Request::is('skill')) active @endif'">
+        <a class="nav-link" href="{{ route('skill') }}">Skills</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Interests</a>
+    <li class="nav-item '@if(Request::is('interest')) active @endif'">
+        <a class="nav-link" href="{{ route('interest') }}">Interests</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Awards & Certificate</a>
+    <li class="nav-item '@if(Request::is('certificate')) active @endif'">
+        <a class="nav-link" href="{{ route('certificate') }}">Awards & Certificate</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">skills</a>
+    <li class="nav-item '@if(Request::is('social')) active @endif'">
+        <a class="nav-link" href="{{ route('social') }}">Social</a>
     </li>
 </ul>
