@@ -23,7 +23,7 @@
             <h1 class="mb-0">{{ $user->last_name }}
                 <span class="text-primary">{{ $user->first_name }}</span>
             </h1>
-            <div class="subheading mb-5">#n {{ $user->home_number }}, khan {{ $user->khan }},
+            <div class="subheading mb-5">#n {{ $user->home_number }}<sub>{{ $user->floor }}</sub>, khan {{ $user->khan }},
                 songkat {{ $user->songkat }}
                 , {{ $user->city }} · (+855) {{ $user->phone }} ·
                 <a href="mailto:{{$user->email}}">{{ $user->email }}</a>

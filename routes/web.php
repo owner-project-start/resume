@@ -11,10 +11,11 @@
 |
 */
 Auth::routes();
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('index');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/profile', 'InsertController@profile')->name('profile');
+    Route::put('/profile/update/{id}', 'InsertController@updateProfile')->name('profile.update');
     Route::get('/experience', 'InsertController@insertExperience')->name('experience');
     Route::get('/education', 'InsertController@insertEducation')->name('education');
     Route::get('/interests', 'InsertController@insertInterest')->name('interests');
