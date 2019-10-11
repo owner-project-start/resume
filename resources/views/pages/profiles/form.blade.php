@@ -27,32 +27,32 @@
     </div>
 
     <div class="form-row">
-        <div class="form-group col-md-2 col-sm-2 col-4">
+        <div class="form-group col-md-4 col-sm-2 col-4">
             <label for="home_number">N<sup>o</sup></label>
             <input type="text" class="form-control" name="home_number" id="home_number" placeholder="#N"
                    @if(isset($user->home_number)) value="{{ $user->home_number }}" @endif>
         </div>
-        <div class="form-group col-md-2 col-sm-2 col-4">
+        <div class="form-group col-md-4 col-sm-2 col-4">
             <label for="floor">Floor</label>
             <input type="text" class="form-control" name="floor" id="floor" placeholder="Floor"
                    @if(isset($user->floor)) value="{{ $user->floor }}" @endif>
         </div>
-        <div class="form-group col-md-2 col-sm-2 col-4">
+        <div class="form-group col-md-4 col-sm-2 col-4">
             <label for="street">Street</label>
             <input type="text" class="form-control" name="street" id="street" placeholder="Street"
                    @if(isset($user->street)) value="{{ $user->street }}" @endif>
         </div>
-        <div class="form-group col-md-2 col-sm-2 col-4">
+        <div class="form-group col-md-4 col-sm-2 col-4">
             <label for="khan">Khan</label>
             <input type="text" class="form-control" name="khan" id="khan" placeholder="Khan"
                    @if(isset($user->khan)) value="{{ $user->khan }}" @endif>
         </div>
-        <div class="form-group col-md-2 col-sm-2 col-4">
+        <div class="form-group col-md-4 col-sm-2 col-4">
             <label for="songkat">Song Kat</label>
             <input type="text" class="form-control" name="songkat" id="songkat" placeholder="Song-Kat"
                    @if(isset($user->songkat)) value="{{ $user->songkat }}" @endif>
         </div>
-        <div class="form-group col-md-2 col-sm-2 col-4">
+        <div class="form-group col-md-4 col-sm-2 col-4">
             <label for="city">City</label>
             <input type="text" class="form-control" name="city" id="city" placeholder="City"
                    @if(isset($user->city)) value="{{ $user->city }}" @endif>
