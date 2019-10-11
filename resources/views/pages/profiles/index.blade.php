@@ -6,7 +6,7 @@
     <form method="POST" action="{{ route('profile.update', $user->id) }}">
         @csrf
         @include('pages.profiles.form')
-
+z
         <div class="row">
             <div class="col-md-6">
                 <button type="submit" class="btn btn-block btn-primary">Update Profile</button>
@@ -16,5 +16,4 @@
             </div>
         </div>
     </form>
-    {{ Request::url() }}
 @endsection

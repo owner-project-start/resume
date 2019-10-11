@@ -1,3 +1,6 @@
 <?php
+// return view
+Route::get('experiences', 'ExperienceController@index')->name('experiences');
 
-Route::get('experience', 'ExperienceController@index')->name('experience');
+// get data
+Route::get('getList', 'ExperienceController@all')->name('getList');

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\ScoreColumns;
+namespace App\Services\Experiences;
 
 use App\Experience;
 use App\Services\BaseService;
