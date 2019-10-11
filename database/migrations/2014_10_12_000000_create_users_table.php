@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('home_number');
+            $table->string('avatar')->nullable();
             $table->integer('floor');
             $table->string('street');
             $table->string('khan');

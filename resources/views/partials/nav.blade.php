@@ -30,7 +30,7 @@
                 <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
             </li>
             <li data-v-718c1925="" class="nav-item">
-                <a data-v-718c1925="" href="javascript:void(0)" class="nav-link js-scroll-trigger">
+                <a data-v-718c1925="" href="{{ route('profile') }}" class="nav-link js-scroll-trigger">
                     All right reserve @ 2019
                 </a>
             </li>
