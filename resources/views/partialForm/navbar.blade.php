@@ -2,8 +2,8 @@
     <li class="nav-item '@if(Request::is('profile')) active @endif'">
         <a class="nav-link" href="{{ route('profile') }}">Profile</a>
     </li>
-    <li class="nav-item '@if(Request::is('experience')) active @endif'">
-        <a class="nav-link" href="{{ route('experience') }}">Experiences</a>
+    <li class="nav-item '@if(Request::is('experiences')) active @endif'">
+        <a class="nav-link" href="{{ route('experiences') }}">Experiences</a>
     </li>
     <li class="nav-item '@if(Request::is('education')) active @endif'">
         <a class="nav-link" href="{{ route('education') }}">Education</a>
