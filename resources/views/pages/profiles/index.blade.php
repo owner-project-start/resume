@@ -6,7 +6,9 @@
     <img src="https://user.gadjian.com/static/images/personnel_boy.png"
          class="gambar img-responsive img-thumbnail rounded-circle"
          id="item-img-output" width="50">
-    <button type="button" id="changeImage" class="btn btn-sm btn-success">Change Image</button>
+    <button type="button" id="changeImage" class="btn btn-sm btn-success">
+        Change Image
+    </button>
 @endsection
 
 @section('content')

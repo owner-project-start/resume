@@ -1,20 +1,20 @@
 @extends('layouts.master')
 
 @section('style')
-    <style>
-        .navbar {
-            position: relative;
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-            -ms-flex-align: center;
-            align-items: center;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
-            padding: .5rem 0;
-        }
-    </style>
+{{--    <style>--}}
+{{--        .navbar {--}}
+{{--            position: relative;--}}
+{{--            display: -ms-flexbox;--}}
+{{--            display: flex;--}}
+{{--            -ms-flex-wrap: wrap;--}}
+{{--            flex-wrap: wrap;--}}
+{{--            -ms-flex-align: center;--}}
+{{--            align-items: center;--}}
+{{--            -ms-flex-pack: justify;--}}
+{{--            justify-content: space-between;--}}
+{{--            padding: .5rem 0;--}}
+{{--        }--}}
+{{--    </style>--}}
 @endsection
 
 @section('about')

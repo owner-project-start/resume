@@ -8,3 +8,17 @@
 
 <!-- Custom styles for this template -->
 <link href="{{ asset('css/resume.min.css') }}" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ asset('node_modules/animate.css/animate.min.css') }}">
+
+<style>
+    body p {
+        text-transform: lowercase;
+    }
+
+    body p::first-letter {
+        text-transform: uppercase;
+        font-size: 1.5em;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+</style>

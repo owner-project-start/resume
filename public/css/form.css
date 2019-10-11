@@ -13,7 +13,69 @@
      border-radius: 0;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
 label {
     display: inline-block;
     margin-bottom: 0;
+}
+
+.header {
+    font-family: 'Lobster', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-align: center;
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 5s infinite linear;
+}
+
+.sub-header {
+    font-family: 'Lobster', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 5s infinite linear;
+}
+
+.c-title {
+    font-family: 'Lobster', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 5s infinite linear;
+}
+
+.active {
+    font-family: 'Lobster', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: hue 20s infinite linear;
+}
+
+@-webkit-keyframes hue {
+    from {
+        -webkit-filter: hue-rotate(90deg);
+    }
+    to {
+        -webkit-filter: hue-rotate(-360deg);
+    }
 }

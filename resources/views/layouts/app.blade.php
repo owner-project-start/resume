@@ -17,12 +17,16 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">
-                        <div class="float-left">
-                            @yield('header')
-                        </div>
-                        <div class="float-right">
-                            @yield('header-actions')
+                    <div class="card-header d-flex">
+                        <div class="animated bounceInDown fast w-100">
+                            <div class="h-100 d-flex align-items-center">
+                                <div>
+                                    <span class="c-title"><b>@yield('header')</b></span>
+                                </div>
+                                <div class="ml-auto">
+                                    @yield('header-actions')
+                                </div>
+                            </div>
                         </div>
                     </div>
 

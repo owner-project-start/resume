@@ -12,6 +12,7 @@
     "@fortawesome/fontawesome-free": "^5.10.2"
   },
   "dependencies": {
+    "animate.css": "^3.7.2",
     "bootstrap": "^4.3.1",
     "croppie": "^2.6.4",
     "jquery": "^3.4.1",

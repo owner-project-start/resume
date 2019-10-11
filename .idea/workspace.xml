@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c96259f-4a89-4e25-87dd-46a8e0919b1c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/partialForm/nav.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/profiles/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/profiles/form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/profiles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/profiles/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partialForm/css.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partialForm/css.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partialForm/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partialForm/nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partialForm/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partialForm/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/css.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/css.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -186,7 +188,7 @@
       <workItem from="1568356299356" duration="8326000" />
       <workItem from="1569578307079" duration="13178000" />
       <workItem from="1570518802051" duration="7698000" />
-      <workItem from="1570776927352" duration="9330000" />
+      <workItem from="1570776927352" duration="16122000" />
     </task>
     <servers />
   </component>
