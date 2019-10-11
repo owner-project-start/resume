@@ -15,30 +15,6 @@
         letter-spacing: 1px;
     }
 
-    body button{
-        font-family: 'Lobster', sans-serif;
-        font-weight: 600;
-        letter-spacing: 1px;
-        text-align: center;
-        color: #f35626;
-        background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -webkit-animation: hue 5s infinite linear;
-    }
-
-    body a{
-        font-family: 'Lobster', sans-serif;
-        font-weight: 600;
-        letter-spacing: 1px;
-        text-align: center;
-        color: #f35626;
-        background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -webkit-animation: hue 5s infinite linear;
-    }
-
     body thead{
         font-family: 'Lobster', sans-serif;
         letter-spacing: 1px;

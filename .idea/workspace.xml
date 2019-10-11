@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9c96259f-4a89-4e25-87dd-46a8e0919b1c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partialForm/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partialForm/nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partialForm/css.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partialForm/css.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -184,7 +182,7 @@
       <workItem from="1568356299356" duration="8326000" />
       <workItem from="1569578307079" duration="13178000" />
       <workItem from="1570518802051" duration="7698000" />
-      <workItem from="1570776927352" duration="16591000" />
+      <workItem from="1570776927352" duration="17135000" />
     </task>
     <servers />
   </component>
