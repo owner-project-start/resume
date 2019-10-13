@@ -3,7 +3,6 @@
 @section('header', 'Profile')
 
 @section('header-actions')
-    {{--    {{ $user }}--}}
     @if(isset($user->avatar))
         <img src="{{$user->avatar}}"
              class="gambar img-responsive img-thumbnail rounded-circle"
@@ -150,13 +149,12 @@
                     status: $('#status').val(),
                 },
                 success: function (response) {
-                    console.log(response)
-                    // if (response.code === 202)
-                    // {
-                    //     toastr.success(response.message);
-                    // } else {
-                    //     toastr.error(response.message);
-                    // }
+                    if (response.code === 202)
+                    {
+                        toastr.success(response.message);
+                    } else {
+                        toastr.error(response.message);
+                    }
                 }
             })
         }
