@@ -3,11 +3,14 @@
 @section('header', 'Profile')
 
 @section('header-actions')
-    <img src="https://user.gadjian.com/static/images/personnel_boy.png"
-         class="gambar img-responsive img-thumbnail rounded-circle"
-         id="item-img-output" width="50">
+    {{--    {{ $user }}--}}
+    @if(isset($user->avatar))
+        <img src="{{$user->avatar}}"
+             class="gambar img-responsive img-thumbnail rounded-circle"
+             id="item-img-output" alt="avatar" width="50">
+    @endif
     <button type="button" id="changeImage" class="btn btn-sm btn-success">
-        Change Image
+        Image
     </button>
 @endsection
 
@@ -45,7 +48,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" id="cropImageBtn" class="btn btn-primary">Crop</button>
+                    <button type="button" id="cropImageBtn" class="btn btn-primary">Save</button>
                 </div>
             </div>
         </div>
@@ -54,7 +57,6 @@
 
 @section('script')
     <script>
-        // Start upload preview image
         var $uploadCrop,
             tempFilename,
             rawImg,
@@ -107,11 +109,25 @@
                 format: 'jpeg',
                 size: {width: 200, height: 200}
             }).then(function (resp) {
-                console.log(resp)
                 $('#item-img-output').attr('src', resp);
+                $('.nav-avatar').attr('src', resp);
                 $('#cropImagePop').modal('hide');
+                $.ajax({
+                    type: 'PUT',
+                    url: "{{ route('avatar.update', $user->id) }}",
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        avatar: resp
+                    },
+                    success: (response) => {
+                        if (response.code === 202) {
+                            toastr.success(response.message);
+                        }
+                    }
+                })
             });
         });
+
         // End upload preview image
         function update()
         {
@@ -134,20 +150,15 @@
                     status: $('#status').val(),
                 },
                 success: function (response) {
-                    if (response.code === 202)
-                    {
-                        console.log(response)
-                        toastr.success(response.message);
-                    }else {
-                        toastr.success(response.message);
-                    }
+                    console.log(response)
+                    // if (response.code === 202)
+                    // {
+                    //     toastr.success(response.message);
+                    // } else {
+                    //     toastr.error(response.message);
+                    // }
                 }
             })
         }
-
-        // mounted
-        $(function () {
-            // update()
-        })
     </script>
 @endsection

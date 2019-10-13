@@ -16,14 +16,6 @@ class BaseService
         return $this->model->find($id);
     }
 
-    public function checkStatus($input)
-    {
-        if ($input === null) {
-            $input = 0;
-        }
-        return $input;
-    }
-
     public function create($attributes)
     {
         if (!$attributes) {
@@ -39,7 +31,6 @@ class BaseService
             return false;
         }
         $result = $modelObj->fill($attribute);
-        $result->update();
         return $result;
     }
 }

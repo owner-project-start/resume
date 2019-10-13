@@ -24,12 +24,11 @@ function success_create($message, $code = 201, $data = [])
 }
 
 //code 202
-function success_update($message, $code = 202, $data = [])
+function success_update($data ,$message, $code = 202)
 {
-    $message = 'Successfully, updated';
     return response()->json([
         'code' => $code,
-        'message' => $message,
+        'message' => 'Successfully, '.$message.' updated',
         'data' => $data
     ]);
 }
@@ -60,12 +59,11 @@ function error_validate($validate, $code = 400)
     ]);
 }
 
-function error_notFound($message, $code = 204, $data = [])
+function error_notFound( $code = 204, $data = [])
 {
-    $message = 'Errors, record not found';
     return response()->json([
         'code' => $code,
-        'message' => $message,
+        'message' => 'Error, record not found',
         'data' => $data
     ]);
 }

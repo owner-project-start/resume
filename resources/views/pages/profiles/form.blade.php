@@ -63,12 +63,12 @@
     <div class="form-group">
         <label for="description">Description</label>
         <textarea class="form-control" rows="3" name="description" id="description" cols="2"
-                  placeholder="Description here ...">@if(isset($user->description)){{ $user->description }}@endif
-                </textarea>
+                  placeholder="Description here ...">@if(isset($user->description)) {{$user->description}} @endif
+        </textarea>
     </div>
     <div class="form-group">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="status" id="status" value="1"
+            <input class="form-check-input" type="checkbox" name="status" id="status" value="true"
                    @if(isset($user->status) && $user->status === true) checked @endif>
             <label class="form-check-label" for="status">
                 Status

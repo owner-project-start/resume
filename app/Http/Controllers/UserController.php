@@ -8,6 +8,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
@@ -19,13 +20,21 @@ class UserController extends ParentController
         $this->service = $userService;
     }
 
+    private function checkStatus($input)
+    {
+        if ($input === null) {
+            $input = 0;
+        }
+        return $input;
+    }
+
     /**
      * @return Factory|View
      */
     public function profile()
     {
         $user = $this->service->getById(Auth::user()->getAuthIdentifier());
-        if ($user instanceof User) {
+        if ($user instanceof $this->model) {
             toastSuccess('Success get user');
             return view('pages.profiles.index',[
                 'user' => $user,
@@ -53,14 +62,17 @@ class UserController extends ParentController
                 'phone' => 'required',
             ]);
             DB::beginTransaction();
-            $attributes = $request->all();
-            dd($attributes);
-            $attributes['status'] = $this->service->checkStatus($request['status']);
-            $updatedObject = $this->service->updateById($attributes, $id);
-            if ($updatedObject) {
-                return success_update($updatedObject);
+            $input = $request->all();
+            $attributes['status'] = $this->checkStatus($request['status']);
+            $userObject = $this->service->getById($id);
+            if ($userObject instanceof $this->model) {
+                $userObject->update($input);
+                DB::commit();
+                return success_update($input, 'User');
+            } else {
+                DB::rollBack();
+                return error_notFound('user');
             }
-            return $this->error();
         } catch (ValidationException $validate) {
             DB::rollBack();
             return error_validate($validate->errors());
@@ -69,6 +81,24 @@ class UserController extends ParentController
 
     public function updateAvatar(Request $request, $id)
     {
-        return success_update($request->all());
+        $user = $this->service->getById($id);
+        if ($user instanceof $this->model) {
+            $avatar = $request->input('avatar');
+            $avatar = str_replace('data:image/jpeg;base64,', '', $avatar);
+            $avatar = str_replace(' ', '+', $avatar);
+            $name = time() . '.' . 'png';
+            $folder = '/storage/users';
+            $avatarName = $folder . '/' . $name;
+            File::put(public_path($folder) . '/' . $name, base64_decode($avatar));
+            $userAvatar = $user->avatar;
+            if (File::exists(public_path($userAvatar))) {
+                File::delete(public_path($userAvatar));
+            }
+            $user->update([
+                'avatar' => $avatarName
+            ]);
+            return success_update($userAvatar, 'avatar');
+        }
+        return error_notFound('User');
     }
 }
