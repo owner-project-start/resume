@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="{{ asset('node_modules/animate.css/animate.min.css') }}">
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
 
+@toastr_css
+
 <style>
     body{
         font-family: 'Assistant', sans-serif;
@@ -24,7 +26,10 @@
         text-transform: lowercase;
     }
 
-
+    .toast-message {
+        font-family: 'Lobster', sans-serif;
+        letter-spacing: 1px;
+    }
 
     /*body p {*/
     /*    text-transform: lowercase;*/

@@ -17,12 +17,11 @@
             <input type="file" class="item-img file center-block" id="image" name="file_photo" style="display:none;"/>
         </div>
         <div class="col-md-12">
-            <form method="POST" action="{{ route('profile.update', $user->id) }}">
-                @csrf
+            <form>
                 @include('pages.profiles.form')
                 <div class="row">
                     <div class="col-md-6">
-                        <button type="submit" class="btn btn-block btn-primary">Update Profile</button>
+                        <button type="button" class="btn btn-block btn-primary" onclick="update()">Update Profile</button>
                     </div>
                     <div class="col-md-6">
                         <a href="{{ route('index') }}" class="btn btn-block btn-danger">Cancel</a>
@@ -114,5 +113,41 @@
             });
         });
         // End upload preview image
+        function update()
+        {
+            $.ajax({
+                type: "PUT",
+                url: "{{ route('profile.update', $user->id) }}",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    first_name: $('#first_name').val(),
+                    last_name: $('#last_name').val(),
+                    email: $('#email').val(),
+                    phone: $('#phone').val(),
+                    home_number: $('#home_number').val(),
+                    floor: $('#floor').val(),
+                    street: $('#street').val(),
+                    khan: $('#khan').val(),
+                    songkat: $('#songkat').val(),
+                    city: $('#city').val(),
+                    description: $('#description').val(),
+                    status: $('#status').val(),
+                },
+                success: function (response) {
+                    if (response.code === 202)
+                    {
+                        console.log(response)
+                        toastr.success(response.message);
+                    }else {
+                        toastr.success(response.message);
+                    }
+                }
+            })
+        }
+
+        // mounted
+        $(function () {
+            // update()
+        })
     </script>
 @endsection

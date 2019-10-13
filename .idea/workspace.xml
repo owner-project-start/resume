@@ -2,8 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c96259f-4a89-4e25-87dd-46a8e0919b1c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/helpers/helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/resume.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/resume.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ParentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ParentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/BaseService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/BaseService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Users/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/Users/UserService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/profiles/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/profiles/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/profiles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/profiles/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partialForm/css.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partialForm/css.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partialForm/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partialForm/nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partialForm/script.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partialForm/script.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/Web/users.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/Web/users.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,6 +130,7 @@
       <path value="$PROJECT_DIR$/vendor/opis/closure" />
       <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
       <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/vendor/yoeunes/toastr" />
     </include_path>
   </component>
   <component name="ProjectId" id="1RPot4IHgcuxK2AEpVdC0q82TbF" />
@@ -182,7 +200,7 @@
       <workItem from="1568356299356" duration="8326000" />
       <workItem from="1569578307079" duration="13178000" />
       <workItem from="1570518802051" duration="7698000" />
-      <workItem from="1570776927352" duration="17135000" />
+      <workItem from="1570776927352" duration="29305000" />
     </task>
     <servers />
   </component>

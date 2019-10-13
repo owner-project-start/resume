@@ -6,6 +6,24 @@ class BaseService
 {
     protected $model;
 
+    public function getList()
+    {
+        return $this->model->all()->toArray();
+    }
+
+    public function getById($id)
+    {
+        return $this->model->find($id);
+    }
+
+    public function checkStatus($input)
+    {
+        if ($input === null) {
+            $input = 0;
+        }
+        return $input;
+    }
+
     public function create($attributes)
     {
         if (!$attributes) {
@@ -14,15 +32,7 @@ class BaseService
         return $this->model->create($attributes);
     }
 
-    public function updateOrCreate($attributes)
-    {
-        if (!$attributes) {
-            return false;
-        }
-        return $this->model->updateOrCreate($attributes);
-    }
-
-    public function updateById($id, $attribute)
+    public function updateById($attribute, $id)
     {
         $modelObj = $this->getById($id);
         if (!$modelObj) {
@@ -31,36 +41,5 @@ class BaseService
         $result = $modelObj->fill($attribute);
         $result->update();
         return $result;
-    }
-
-    public function getById($id)
-    {
-        return $this->model->find($id);
-
-    }
-
-    public function delete($id)
-    {
-        $result = $this->model->find($id);
-        if ($result instanceof $this->model) {
-            $result->delete();
-            return $result;
-        }
-        return false;
-    }
-
-    public function getList()
-    {
-        return $this->model->all()->toArray();
-    }
-
-    public function getSchema()
-    {
-        return $this->model->getTableColumns();
-    }
-
-    public function getTableHeader()
-    {
-        return $this->model->getTableHeaders();
     }
 }

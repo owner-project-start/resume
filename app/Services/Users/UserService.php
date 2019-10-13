@@ -7,8 +7,8 @@ use App\Services\BaseService;
 
 class UserService extends BaseService
 {
-    public function __construct(User $scoreColumn)
+    public function __construct(User $user)
     {
-        $this->model = $scoreColumn;
+        $this->model = $user;
     }
 }

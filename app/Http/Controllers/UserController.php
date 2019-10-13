@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Users\UserService;
 use App\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
-class UserController extends Controller
+class UserController extends ParentController
 {
-    private function checkStatus($input)
+    public function __construct(User $user, UserService $userService)
     {
-        if ($input === null)
-        {
-            $input = 0;
-        }
-        return $input;
+        $this->model = $user;
+        $this->service = $userService;
     }
 
     /**
@@ -24,17 +24,16 @@ class UserController extends Controller
      */
     public function profile()
     {
-        $user = User::find(Auth::user()->getAuthIdentifier());
-        if ($user instanceof User)
-        {
+        $user = $this->service->getById(Auth::user()->getAuthIdentifier());
+        if ($user instanceof User) {
+            toastSuccess('Success get user');
             return view('pages.profiles.index',[
                 'user' => $user,
-                'message' => 'Success get user'
             ]);
         } else {
+            toastError('Error get user');
             return view('pages.profiles.index', [
                 'user' => [],
-                'message' => 'Error get user'
             ]);
         }
     }
@@ -44,17 +43,32 @@ class UserController extends Controller
      * @param $id
      * @return mixed
      */
-    public function updateProfile(Request $request, $id) {
-        $input = $request->all();
-        $input['status'] = $this->checkStatus($request['status']);
-        $user = User::find($id);
-        if ($user instanceof User)
-        {
-            $user->update($input);
-            return back()->with([
-                'user' => $user,
-                'message' => 'Success updated'
+    public function updateProfile(Request $request, $id)
+    {
+        try {
+            $this->validate($request, [
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'email' => 'required',
+                'phone' => 'required',
             ]);
+            DB::beginTransaction();
+            $attributes = $request->all();
+            dd($attributes);
+            $attributes['status'] = $this->service->checkStatus($request['status']);
+            $updatedObject = $this->service->updateById($attributes, $id);
+            if ($updatedObject) {
+                return success_update($updatedObject);
+            }
+            return $this->error();
+        } catch (ValidationException $validate) {
+            DB::rollBack();
+            return error_validate($validate->errors());
         }
+    }
+
+    public function updateAvatar(Request $request, $id)
+    {
+        return success_update($request->all());
     }
 }

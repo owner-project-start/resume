@@ -21,7 +21,8 @@
         </div>
         <div class="form-group col-md-6 col-sm-6 col-6">
             <label for="phone">Phone Number</label>
-            <input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone-Number"
+            <input type="tel" class="form-control" inputmode="numeric" pattern="[-+]?[0-9]*[.,]?[0-9]+" name="phone"
+                   id="phone" placeholder="Phone-Number"
                    @if(isset($user->phone)) value="{{ $user->phone }}" @endif>
         </div>
     </div>

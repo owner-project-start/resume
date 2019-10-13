@@ -1,8 +1,11 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <span class="header"><b>{{ config('app.name', 'Laravel') }}</b></span>
-
+            <div class="animated lightSpeedIn fast w-100">
+                <span class="header">
+                        {{ config('app.name', 'Laravel') }}
+                </span>
+            </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false"
