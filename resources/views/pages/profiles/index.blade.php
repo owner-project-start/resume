@@ -146,7 +146,7 @@
                     songkat: $('#songkat').val(),
                     city: $('#city').val(),
                     description: $('#description').val(),
-                    status: $('#status').val(),
+                    status: $('#status').prop('checked'),
                 },
                 success: function (response) {
                     if (response.code === 202)

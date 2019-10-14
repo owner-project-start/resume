@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Experience extends Model
+class Experience extends ParentModel
 {
     protected $table = 'experiences';
     protected $fillable = [
@@ -20,6 +20,14 @@ class Experience extends Model
 //        'start_date' => 'date:d/m/Y',
 //        'end_date' => 'date:d/m/Y',
 //    ];
+
+    public $rulesToCreate = [
+
+    ];
+
+    public $rulesToUpdate = [
+        'id' => "required"
+    ];
 
     public function user()
     {

@@ -1,5 +1,4 @@
 @if(isset($user))
-    <input type="hidden" name="_method" value="PUT"/>
     <div class="form-row">
         <div class="form-group col-md-6 col-sm-6 col-6">
             <label for="first_name">First Name</label>
@@ -63,12 +62,11 @@
     <div class="form-group">
         <label for="description">Description</label>
         <textarea class="form-control" rows="3" name="description" id="description" cols="2"
-                  placeholder="Description here ...">@if(isset($user->description)) {{$user->description}} @endif
-        </textarea>
+                  placeholder="Description here ...">@if(isset($user->description)) {{$user->description}} @endif</textarea>
     </div>
     <div class="form-group">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="status" id="status" value="true"
+            <input class="form-check-input" type="checkbox" name="status" id="status"
                    @if(isset($user->status) && $user->status === true) checked @endif>
             <label class="form-check-label" for="status">
                 Status

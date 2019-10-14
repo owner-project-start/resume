@@ -38,13 +38,14 @@
             </div>
         @else
             <h1 class="mb-0">
-                <span class="text-primary">Error</span>
+                <span class="text-primary">No Record</span>
             </h1>
         @endif
     </div>
 @endsection
 
 @section('experience')
+    @if(isset($user))
     <div class="w-100">
         <h2 class="mb-5">Experience</h2>
         @if(count($user->experiences) > 0)
@@ -69,9 +70,11 @@
             </h1>
         @endif
     </div>
+    @endif
 @endsection
 
 @section('education')
+    @if(isset($user))
     <div class="w-100">
         <h2 class="mb-5">Education</h2>
         @if(count($user->educations) > 0)
@@ -90,9 +93,11 @@
         @else
         @endif
     </div>
+    @endif
 @endsection
 
 @section('skill')
+    @if(isset($user))
     <div class="w-100">
         <h2 class="mb-5">Skills</h2>
         <div class="subheading mb-3">Programming Languages &amp; Tools</div>
@@ -118,9 +123,11 @@
             </h1>
         @endif
     </div>
+    @endif
 @endsection
 
 @section('interests')
+    @if(isset($user))
     <div class="w-100">
         <h2 class="mb-5">Interests</h2>
         @if(count($user->interests) > 0)
@@ -133,9 +140,11 @@
             </h1>
         @endif
     </div>
+    @endif
 @endsection
 
 @section('certificate')
+    @if(isset($user))
     <div class="w-100">
         <h2 class="mb-5">Awards &amp; Certifications</h2>
         @if(count($user->certificates) > 0)
@@ -156,4 +165,5 @@
             </h1>
         @endif
     </div>
+    @endif
 @endsection

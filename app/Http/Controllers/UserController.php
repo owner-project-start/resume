@@ -20,14 +20,6 @@ class UserController extends ParentController
         $this->service = $userService;
     }
 
-    private function checkStatus($input)
-    {
-        if ($input === null) {
-            $input = 0;
-        }
-        return $input;
-    }
-
     /**
      * @return Factory|View
      */
@@ -63,12 +55,11 @@ class UserController extends ParentController
             ]);
             DB::beginTransaction();
             $input = $request->all();
-            $attributes['status'] = $this->checkStatus($request['status']);
             $userObject = $this->service->getById($id);
             if ($userObject instanceof $this->model) {
                 $userObject->update($input);
                 DB::commit();
-                return success_update($input, 'User');
+                return success_update($userObject, 'User');
             } else {
                 DB::rollBack();
                 return error_notFound('user');

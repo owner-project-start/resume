@@ -103,3 +103,7 @@ body button{
         -webkit-filter: hue-rotate(-360deg);
     }
 }
+
+a {
+    white-space: nowrap;
+}
