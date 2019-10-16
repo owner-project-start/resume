@@ -17,6 +17,7 @@ class CreateInterestsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
             $table->string('description');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')

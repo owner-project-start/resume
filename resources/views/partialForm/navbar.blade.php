@@ -35,8 +35,8 @@
             </div>
         </a>
     </li>
-    <li class="nav-item '@if(Request::is('interest')) active @endif'">
-        <a class="nav-link" href="{{ route('interest') }}">
+    <li class="nav-item '@if(Request::is('interests')) active @endif'">
+        <a class="nav-link" href="{{ route('interests') }}">
             <div>
                 <span class="sub-header">
                     Interests
@@ -44,8 +44,8 @@
             </div>
         </a>
     </li>
-    <li class="nav-item '@if(Request::is('certificate')) active @endif'">
-        <a class="nav-link" href="{{ route('certificate') }}">
+    <li class="nav-item '@if(Request::is('certificaties')) active @endif'">
+        <a class="nav-link" href="{{ route('certificaties') }}">
             <div>
                 <span class="sub-header">
                     Awards & Certificate

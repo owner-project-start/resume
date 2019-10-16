@@ -19,6 +19,7 @@ class CreateCertificatesTable extends Migration
             $table->string('name');
             $table->string('from');
             $table->string('link');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')

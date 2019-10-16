@@ -2,11 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
-
 class Experience extends ParentModel
 {
-    use SoftDeletes;
     protected $table = 'experiences';
     protected $fillable = [
         'user_id',

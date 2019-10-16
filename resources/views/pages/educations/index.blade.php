@@ -1,6 +1,8 @@
 @extends('layouts.appTable')
 
-@section('header', 'Education')
+@section('title', 'Education')
+
+@section('header', 'Educations')
 
 @section('header-actions')
     <button class="btn btn-sm btn-primary" data-toggle='modal' data-target='#Modal' value="create"
@@ -69,7 +71,7 @@
                             "<tr>" +
                             "<td>" + education.study_at + "</td>" +
                             "<td>" + education.degree + "</td>" +
-                            "<td>" + education.description.substring(0, 20) + "</td>" +
+                            "<td>" + education.description.substring(0, 20) + "...." + "</td>" +
                             "<td>" + new Date(education.from).toLocaleDateString() + "</td>" +
                             "<td>" + endDate + "</td>" +
                             "<td class='action' style='display: inline-flex'>" +

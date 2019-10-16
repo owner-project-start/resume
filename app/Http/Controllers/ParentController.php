@@ -73,4 +73,13 @@ class ParentController extends Controller
             return error_validate($validate->errors());
         }
     }
+
+    public function getById(Request $request) {
+        $skill = $this->service->getById($request->id);
+        if ($skill instanceof $this->model){
+            return success($skill);
+        } else {
+            return error_notFound($skill);
+        }
+    }
 }

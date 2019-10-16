@@ -1,5 +1,7 @@
 @extends('layouts.appTable')
 
+@section('title', 'Experience')
+
 @section('header', 'Experiences')
 
 @section('header-actions')
@@ -69,7 +71,7 @@
                             "<tr>" +
                             "<td>" + experience.company + "</td>" +
                             "<td>" + experience.position + "</td>" +
-                            "<td>" + experience.content.substring(0, 20) + "</td>" +
+                            "<td>" + experience.content.substring(0, 20) + "...." + "</td>" +
                             "<td>" + new Date(experience.start_date).toLocaleDateString() + "</td>" +
                             "<td>" + endDate + "</td>" +
                             "<td class='action' style='display: inline-flex'>" +

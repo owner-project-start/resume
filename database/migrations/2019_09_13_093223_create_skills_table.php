@@ -18,6 +18,7 @@ class CreateSkillsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('name');
             $table->boolean('active');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')

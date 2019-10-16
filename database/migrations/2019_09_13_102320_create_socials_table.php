@@ -18,6 +18,7 @@ class CreateSocialsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('icon');
             $table->string('link');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')

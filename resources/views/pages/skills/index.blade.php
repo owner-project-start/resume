@@ -1,6 +1,8 @@
 @extends('layouts.appTable')
 
-@section('header', 'Skill')
+@section('title', 'Skill')
+
+@section('header', 'Skills')
 
 @section('header-actions')
     <button class="btn btn-sm btn-primary" data-toggle='modal' data-target='#Modal' value="create"

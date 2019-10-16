@@ -17,6 +17,8 @@
 {{--    </style>--}}
 @endsection
 
+@section('title', 'Home')
+
 @section('about')
     <div class="w-100">
         @if(isset($user))

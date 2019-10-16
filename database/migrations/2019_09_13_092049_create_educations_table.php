@@ -21,6 +21,7 @@ class CreateEducationsTable extends Migration
             $table->string('description');
             $table->date('from');
             $table->date('to')->nullable();
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')

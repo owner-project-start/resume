@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Profile')
+
 @section('header', 'Profile')
 
 @section('header-actions')
@@ -10,7 +12,7 @@
     @else
         <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
              class="gambar img-responsive img-thumbnail rounded-circle"
-             id="item-img-output" alt="avatar" width="50">
+             id="item-img" alt="avatar" width="50">
     @endif
     <button type="button" id="changeImage" class="btn btn-sm btn-success">
         Image
@@ -113,6 +115,7 @@
                 size: {width: 200, height: 200}
             }).then(function (resp) {
                 $('#item-img-output').attr('src', resp);
+                $('#item-img').attr('src', resp);
                 $('.nav-avatar').attr('src', resp);
                 $('#cropImagePop').modal('hide');
                 $.ajax({

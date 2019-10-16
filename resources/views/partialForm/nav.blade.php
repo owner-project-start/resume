@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-xl navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <div class="animated lightSpeedIn fast w-100">
+            <div class="animated flip fast w-100">
                 <span class="header">
-                        {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Laravel') }}
                 </span>
             </div>
         </a>
