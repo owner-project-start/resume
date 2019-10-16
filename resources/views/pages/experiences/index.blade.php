@@ -26,28 +26,6 @@
         </table>
     </div>
 
-    <!-- Modal Create-->
-    {{--    <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel"--}}
-    {{--         aria-hidden="true">--}}
-    {{--        <div class="modal-dialog" role="document">--}}
-    {{--            <div class="modal-content">--}}
-    {{--                <div class="modal-header">--}}
-    {{--                    <h5 class="modal-title c-title" id="exampleModalLabel">Add New Experience</h5>--}}
-    {{--                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
-    {{--                        <span aria-hidden="true">&times;</span>--}}
-    {{--                    </button>--}}
-    {{--                </div>--}}
-    {{--                <div class="modal-body">--}}
-    {{--                    @include('pages.experiences.form')--}}
-    {{--                </div>--}}
-    {{--                <div class="modal-footer">--}}
-    {{--                    <button type="button" class="btn btn-secondary" id="close" data-dismiss="modal">Close</button>--}}
-    {{--                    <button type="button" class="btn btn-primary">Add New</button>--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
-
     <!-- Modal Edit -->
     <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
          aria-hidden="true">
@@ -72,7 +50,6 @@
 @endsection
 
 @section('script')
-
     <script>
         function getList() {
             $.ajax({
@@ -81,8 +58,8 @@
                 success: function (data) {
                     let html = '';
                     let endDate = '';
-                    let result = data.data;
-                    result.forEach((experience) => {
+                    let results = data.data;
+                    $.each(results, function (index, experience) {
                         if (experience.end_date === null) {
                             endDate = 'N/A';
                         } else {
@@ -97,11 +74,12 @@
                             "<td>" + endDate + "</td>" +
                             "<td class='action' style='display: inline-flex'>" +
                             "<button class='btn btn-sm btn-warning' data-toggle='modal' data-target='#Modal' onclick='action(this.value," + experience.id + ")' value='edit'>Edit</button>&nbsp;" +
-                            "<button class='btn btn-sm btn-danger' data-id='" + experience.id + "'>Delete</button>" +
+                            "<button class='btn btn-sm btn-danger' onclick='destroy(" + experience.id + ")'>Delete</button>" +
                             "</td>" +
                             "</tr>"
                         )
                     });
+
                     $(".listData").html(html)
                 }
             })
@@ -141,6 +119,25 @@
             }
         }
 
+        function destroy(id) {
+            $.ajax({
+                type: "POST",
+                url: "{{ route('experiences.delete') }}",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    id: id
+                },
+                success: (response) => {
+                    if (response.code === 204){
+                        toastr.success(response.message);
+                        getList()
+                    } else {
+                        toastr.warning(response.message)
+                    }
+                }
+            })
+        }
+
         function submit() {
             $.ajax({
                 type: "POST",
@@ -155,7 +152,17 @@
                     end_date: $('#end_date').val()
                 },
                 success: (response) => {
-                    console.log(response)
+                    if (response.code === 202) {
+                        toastr.success(response.message);
+                        $('#Modal').modal('hide');
+                        getList()
+                    } else if (response.code === 201) {
+                        toastr.success(response.message);
+                        $('#Modal').modal('hide');
+                        getList()
+                    } else {
+                        toastr.warning(response.message);
+                    }
                 }
             })
         }

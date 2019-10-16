@@ -2,10 +2,11 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Experience extends ParentModel
 {
+    use SoftDeletes;
     protected $table = 'experiences';
     protected $fillable = [
         'user_id',
@@ -16,17 +17,22 @@ class Experience extends ParentModel
         'end_date'
     ];
     protected $dates = ['start_date', 'end_date'];
-//    protected $casts = [
-//        'start_date' => 'date:d/m/Y',
-//        'end_date' => 'date:d/m/Y',
-//    ];
 
     public $rulesToCreate = [
-
+        'position' => 'required',
+        'company' => 'required',
+        'content' => 'required',
+        'start_date' => 'required|date',
+        'end_date' => 'date',
     ];
 
     public $rulesToUpdate = [
-        'id' => "required"
+        'id' => "required|integer",
+        'position' => 'required',
+        'company' => 'required',
+        'content' => 'required',
+        'start_date' => 'required|date',
+        'end_date' => 'date',
     ];
 
     public function user()

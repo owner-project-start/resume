@@ -2,11 +2,17 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Skill extends Model
+class Skill extends ParentModel
 {
     protected $fillable = ['user_id', 'name', 'active'];
+
+    public $rulesToCreate = [
+
+    ];
+
+    public $rulesToUpdate = [
+
+    ];
 
     public function user()
     {

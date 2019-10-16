@@ -27,17 +27,7 @@ class ExperienceController extends ParentController
 
     public function store(Request $request)
     {
-        try {
-            if (isset($request->id)){
-                $this->validate($request, $this->model->rulesToUpdate);
-                return 'edit';
-            } else {
-                $this->validate($request, $this->model->rulesToCreate);
-                return 'create';
-            }
-        } catch (ValidationException $validate) {
-            return error_validate($validate->errors());
-        }
+        return parent::store($request);
     }
 
     public function getById(Request $request)
@@ -52,5 +42,10 @@ class ExperienceController extends ParentController
             }
         }
         return success($experiences);
+    }
+
+    public function destroy(Request $request)
+    {
+        return parent::delete($request);
     }
 }

@@ -18,26 +18,26 @@ class EducationTableSeeder extends Seeder
             [
                 'user_id' => 1,
                 'study_at' => 'institute of technology of cambodia',
-                'level' => 'college',
-                'content' => 'computer science',
-                'start_date' => now(),
-                'end_date' => now()
+                'degree' => 'college',
+                'description' => 'computer science',
+                'from' => now(),
+                'to' => now()
             ],
             [
                 'user_id' => 1,
                 'study_at' => 'angkor high school',
-                'level' => 'high school',
-                'content' => 'general knowledge',
-                'start_date' => now(),
-                'end_date' => now()
+                'degree' => 'high school',
+                'description' => 'general knowledge',
+                'from' => now(),
+                'to' => now()
             ],
             [
                 'user_id' => 1,
                 'study_at' => 'bonteay chas primary school',
-                'level' => 'primary',
-                'content' => 'general knowledge',
-                'start_date' => now(),
-                'end_date' => now()
+                'degree' => 'primary',
+                'description' => 'general knowledge',
+                'from' => now(),
+                'to' => now()
             ],
         ];
 
@@ -46,10 +46,10 @@ class EducationTableSeeder extends Seeder
             Education::create([
                 'user_id' => $education['user_id'],
                 'study_at' => $education['study_at'],
-                'level' => $education['level'],
-                'content' => $education['content'],
-                'start_date' => $education['start_date'],
-                'end_date' => $education['end_date'],
+                'degree' => $education['degree'],
+                'description' => $education['description'],
+                'from' => $education['from'],
+                'to' => $education['to'],
             ]);
         }
     }

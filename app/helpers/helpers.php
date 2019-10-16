@@ -13,30 +13,33 @@ function success($data, $code = 200)
 }
 
 //code 201
-function success_create($message, $code = 201, $data = [])
+function success_create($data, $code = 201)
 {
-    $message = 'Successfully, created';
     return response()->json([
         'code' => $code,
-        'message' => $message,
+        'message' => 'Successfully, record created',
         'data' => $data
     ]);
 }
 
 //code 202
-function success_update($data ,$message, $code = 202)
+function success_update($data, $code = 202)
 {
     return response()->json([
         'code' => $code,
-        'message' => 'Successfully, '.$message.' updated',
+        'message' => 'Successfully, record updated',
         'data' => $data
     ]);
 }
 
 //code 204
-function success_delete($message, $code = 204, $data = [])
+function success_delete($data, $code = 204)
 {
-
+    return response()->json([
+        'code' => $code,
+        'message' => 'Successfully, record deleted',
+        'data' => $data
+    ]);
 }
 
 //end success
@@ -51,15 +54,14 @@ function error()
 //code 404
 function error_validate($validate, $code = 400)
 {
-    $message = 'Missing fill';
     return response()->json([
         'code' => $code,
-        'message' => $message,
+        'message' => 'Missing fill',
         'validate' => $validate
     ]);
 }
 
-function error_notFound( $code = 204, $data = [])
+function error_notFound($data, $code = 404)
 {
     return response()->json([
         'code' => $code,

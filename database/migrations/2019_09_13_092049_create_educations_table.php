@@ -17,10 +17,10 @@ class CreateEducationsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
             $table->string('study_at');
-            $table->string('level');
-            $table->string('content');
-            $table->date('start_date');
-            $table->date('end_date')->nullable();
+            $table->string('degree');
+            $table->string('description');
+            $table->date('from');
+            $table->date('to')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')

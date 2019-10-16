@@ -26,8 +26,8 @@
             </div>
         </a>
     </li>
-    <li class="nav-item '@if(Request::is('skill')) active @endif'">
-        <a class="nav-link" href="{{ route('skill') }}">
+    <li class="nav-item '@if(Request::is('skills')) active @endif'">
+        <a class="nav-link" href="{{ route('skills') }}">
             <div>
                 <span class="sub-header">
                     Skills

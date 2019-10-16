@@ -4,4 +4,5 @@ Route::group(['prefix' => 'experiences'], function () {
     Route::get('getList', 'ExperienceController@all')->name('experiences.getList');
     Route::post('getById', 'ExperienceController@getById')->name('experiences.getById');
     Route::post('store', 'ExperienceController@store')->name('experiences.store');
+    Route::post('delete', 'ExperienceController@destroy')->name('experiences.delete');
 });

@@ -16,6 +16,7 @@ class CreateExperiencesTable extends Migration
             $table->text('content');
             $table->date('start_date');
             $table->date('end_date')->nullable();
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')

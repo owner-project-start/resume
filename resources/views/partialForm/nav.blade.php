@@ -41,6 +41,10 @@
                             @if(isset(Auth::user()->avatar))
                                 <img src="{{Auth::user()->avatar}}"
                                      class="img-responsive nav-avatar rounded-circle" alt="avatar" width="40">
+                            @else
+                                <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
+                                     class="gambar img-responsive img-thumbnail rounded-circle"
+                                     id="item-img-output" alt="avatar" width="50">
                             @endif
                             {{ Auth::user()->full_name }}
                             <span class="caret"></span>

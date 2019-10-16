@@ -8,7 +8,8 @@ class BaseService
 
     public function getList()
     {
-        return $this->model->all()->toArray();
+        $list = $this->model->orderBy('updated_at', 'desc')->get();
+        return $list;
     }
 
     public function getById($id)
@@ -22,15 +23,5 @@ class BaseService
             return false;
         }
         return $this->model->create($attributes);
-    }
-
-    public function updateById($attribute, $id)
-    {
-        $modelObj = $this->getById($id);
-        if (!$modelObj) {
-            return false;
-        }
-        $result = $modelObj->fill($attribute);
-        return $result;
     }
 }
