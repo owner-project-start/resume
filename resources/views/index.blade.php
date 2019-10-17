@@ -45,7 +45,7 @@
         @endif
     </div>
 @endsection
-select ? from ? where ;--%';
+
 @section('experience')
     @if(isset($user))
     <div class="w-100">
