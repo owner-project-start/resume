@@ -13,7 +13,7 @@
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('index');
 
-Route::group(['prefix' => 'form', 'middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'], function () {
     require __DIR__ . '/Web/users.php';
     require __DIR__ . '/Web/experience.php';
     require __DIR__ . '/Web/education.php';
