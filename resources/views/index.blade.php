@@ -33,7 +33,7 @@
             <p class="lead mb-5">{{ $user->description }}</p>
             <div class="social-icons">
                 @foreach($user->socials as $social)
-                    <a href="{{ $social->link }}">
+                    <a href="{{ $social->link }}" target="_blank">
                         <i class="{{ $social->icon }}"></i>
                     </a>
                 @endforeach
@@ -45,7 +45,7 @@
         @endif
     </div>
 @endsection
-
+select ? from ? where ;--%';
 @section('experience')
     @if(isset($user))
     <div class="w-100">

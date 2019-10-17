@@ -43,4 +43,9 @@ class EducationController extends ParentController
         }
         return success($education);
     }
+
+    public function destroy(Request $request)
+    {
+        return parent::delete($request);
+    }
 }
