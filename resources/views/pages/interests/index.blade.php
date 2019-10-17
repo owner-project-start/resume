@@ -81,7 +81,7 @@
             $('#interestId').val(null);
             $('#description').val(null);
             if (action === 'edit' && id != null) {
-                $('#ModalLabel').html('Edit Skill');
+                $('#ModalLabel').html('Edit Interest');
                 $('.submit').html('Update');
                 $.ajax({
                     type: 'POST',
@@ -98,7 +98,7 @@
                     }
                 })
             } else {
-                $('#ModalLabel').html('Add New Skill');
+                $('#ModalLabel').html('Add New Interest');
                 $('.submit').html('Add New');
             }
         }

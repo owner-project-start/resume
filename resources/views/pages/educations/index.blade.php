@@ -1,6 +1,6 @@
 @extends('layouts.appTable')
 
-@section('title', 'Education')
+@section('title', 'Educations')
 
 @section('header', 'Educations')
 
@@ -56,7 +56,7 @@
         function getList() {
             $.ajax({
                 type: 'GET',
-                url: '{{ route('education.getList') }}',
+                url: '{{ route('educations.getList') }}',
                 success: function (data) {
                     let html = '';
                     let endDate = '';
@@ -99,7 +99,7 @@
                 $('.submit').html('Update');
                 $.ajax({
                     type: 'POST',
-                    url: '{{ route('education.getById') }}',
+                    url: '{{ route('educations.getById') }}',
                     data: {
                         _token: "{{ csrf_token() }}",
                         id: id
@@ -124,7 +124,7 @@
         function destroy(id) {
             $.ajax({
                 type: "POST",
-                url: "{{ route('education.delete') }}",
+                url: "{{ route('educations.delete') }}",
                 data: {
                     _token: "{{ csrf_token() }}",
                     id: id
@@ -143,7 +143,7 @@
         function submit() {
             $.ajax({
                 type: "POST",
-                url: "{{ route('education.store') }}",
+                url: "{{ route('educations.store') }}",
                 data: {
                     _token: "{{ csrf_token() }}",
                     id: $('#educationId').val(),

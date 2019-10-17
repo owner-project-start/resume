@@ -1,8 +1,8 @@
 @extends('layouts.appTable')
 
-@section('title', 'Skill')
+@section('title', 'Social')
 
-@section('header', 'Skills')
+@section('header', 'Socials')
 
 @section('header-actions')
     <button class="btn btn-sm btn-primary" data-toggle='modal' data-target='#Modal' value="create"
@@ -38,7 +38,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    @include('pages.skills.form')
+                    @include('pages.socials.form')
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" id="close" data-dismiss="modal">Close</button>
@@ -54,19 +54,19 @@
         function getList() {
             $.ajax({
                 type: 'GET',
-                url: '{{ route('skills.getList') }}',
+                url: '{{ route('socials.getList') }}',
                 success: function (data) {
                     let html = '';
                     let results = data.data;
-                    $.each(results, function (index, skill) {
+                    $.each(results, function (index, social) {
                         html += (
                             "<tr>" +
-                            "<td>" + skill.name + "</td>" +
-                            "<td>" + skill.created_at + "</td>" +
-                            "<td>" + skill.updated_at + "</td>" +
+                            "<td>" + social.name + "</td>" +
+                            "<td>" + social.created_at + "</td>" +
+                            "<td>" + social.updated_at + "</td>" +
                             "<td class='action' style='display: inline-flex'>" +
-                            "<button class='btn btn-sm btn-warning' data-toggle='modal' data-target='#Modal' onclick='action(this.value," + skill.id + ")' value='edit'>Edit</button>&nbsp;" +
-                            "<button class='btn btn-sm btn-danger' onclick='destroy(" + skill.id + ")'>Delete</button>" +
+                            "<button class='btn btn-sm btn-warning' data-toggle='modal' data-target='#Modal' onclick='action(this.value," + social.id + ")' value='edit'>Edit</button>&nbsp;" +
+                            "<button class='btn btn-sm btn-danger' onclick='destroy(" + social.id + ")'>Delete</button>" +
                             "</td>" +
                             "</tr>"
                         )
@@ -82,11 +82,11 @@
             $('#name').val(null);
             $('#active').val(null);
             if (action === 'edit' && id != null) {
-                $('#ModalLabel').html('Edit Skill');
+                $('#ModalLabel').html('Edit Social');
                 $('.submit').html('Update');
                 $.ajax({
                     type: 'POST',
-                    url: '{{ route('skills.getById') }}',
+                    url: '{{ route('socials.getById') }}',
                     data: {
                         _token: "{{ csrf_token() }}",
                         id: id
@@ -100,7 +100,7 @@
                     }
                 })
             } else {
-                $('#ModalLabel').html('Add New Skill');
+                $('#ModalLabel').html('Add New Social');
                 $('.submit').html('Add New');
             }
         }
@@ -108,7 +108,7 @@
         function destroy(id) {
             $.ajax({
                 type: "POST",
-                url: "{{ route('skills.delete') }}",
+                url: "{{ route('socials.delete') }}",
                 data: {
                     _token: "{{ csrf_token() }}",
                     id: id
@@ -127,7 +127,7 @@
         function submit() {
             $.ajax({
                 type: "POST",
-                url: "{{ route('skills.store') }}",
+                url: "{{ route('socials.store') }}",
                 data: {
                     _token: "{{ csrf_token() }}",
                     id: $('#skillId').val(),

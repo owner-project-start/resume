@@ -17,8 +17,8 @@
             </div>
         </a>
     </li>
-    <li class="nav-item '@if(Request::is('education')) active @endif'">
-        <a class="nav-link" href="{{ route('education') }}">
+    <li class="nav-item '@if(Request::is('educations')) active @endif'">
+        <a class="nav-link" href="{{ route('educations') }}">
             <div>
                 <span class="sub-header">
                     Education
@@ -53,8 +53,8 @@
             </div>
         </a>
     </li>
-    <li class="nav-item '@if(Request::is('social')) active @endif'">
-        <a class="nav-link" href="{{ route('social') }}">
+    <li class="nav-item '@if(Request::is('socials')) active @endif'">
+        <a class="nav-link" href="{{ route('socials') }}">
             <div>
                 <span class="sub-header">
                     Social

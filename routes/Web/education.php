@@ -1,9 +1,9 @@
 <?php
 
-Route::group(['prefix' => 'education'], function () {
-    Route::get('', 'EducationController@index')->name('education');
-    Route::get('getList', 'EducationController@all')->name('education.getList');
-    Route::post('getById', 'EducationController@getById')->name('education.getById');
-    Route::post('store', 'EducationController@store')->name('education.store');
-    Route::post('delete', 'EducationController@destroy')->name('education.delete');
+Route::group(['prefix' => 'educations'], function () {
+    Route::get('', 'EducationController@index')->name('educations');
+    Route::get('getList', 'EducationController@all')->name('educations.getList');
+    Route::post('getById', 'EducationController@getById')->name('educations.getById');
+    Route::post('store', 'EducationController@store')->name('educations.store');
+    Route::post('delete', 'EducationController@destroy')->name('educations.delete');
 });
