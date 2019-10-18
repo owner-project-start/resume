@@ -5,9 +5,9 @@
 @section('header', 'Socials')
 
 @section('header-actions')
-    <button class="btn btn-sm btn-primary" data-toggle='modal' data-target='#Modal' value="create"
-            onclick="action(this.value, null)">Add More
-    </button>
+{{--    <button class="btn btn-sm btn-primary" data-toggle='modal' data-target='#Modal' value="create"--}}
+{{--            onclick="action(this.value, null)">Add More--}}
+{{--    </button>--}}
 @endsection
 
 @section('content')
@@ -15,7 +15,8 @@
         <table class="table table-borderless">
             <thead>
             <tr>
-                <th scope="col">Name</th>
+                <th scope="col">Icon</th>
+                <th scope="col">Link</th>
                 <th scope="col">Created At</th>
                 <th scope="col">Updated At</th>
                 <th scope="col">Action</th>
@@ -61,12 +62,13 @@
                     $.each(results, function (index, social) {
                         html += (
                             "<tr>" +
-                            "<td>" + social.name + "</td>" +
+                            "<td>" + "<i class='"+social.icon+"'></i>" + "</td>" +
+                            "<td>" + "<a href='"+social.link+"'>"+social.link+"</a>" + "</td>" +
                             "<td>" + social.created_at + "</td>" +
                             "<td>" + social.updated_at + "</td>" +
                             "<td class='action' style='display: inline-flex'>" +
                             "<button class='btn btn-sm btn-warning' data-toggle='modal' data-target='#Modal' onclick='action(this.value," + social.id + ")' value='edit'>Edit</button>&nbsp;" +
-                            "<button class='btn btn-sm btn-danger' onclick='destroy(" + social.id + ")'>Delete</button>" +
+                            // "<button class='btn btn-sm btn-danger' onclick='destroy(" + social.id + ")'>Delete</button>" +
                             "</td>" +
                             "</tr>"
                         )
@@ -82,7 +84,7 @@
             $('#name').val(null);
             $('#active').val(null);
             if (action === 'edit' && id != null) {
-                $('#ModalLabel').html('Edit Social');
+                $('#ModalLabel').html('Edit Link');
                 $('.submit').html('Update');
                 $.ajax({
                     type: 'POST',
@@ -93,9 +95,9 @@
                     },
                     success: function (response) {
                         if (response.code === 200) {
-                            $('#skillId').val(response.data.id);
-                            $('#name').val(response.data.name);
-                            $('#active').attr('checked', response.data.active);
+                            $('#socialId').val(response.data.id);
+                            $('#icon').val(response.data.icon);
+                            $('#link').val(response.data.link);
                         }
                     }
                 })
@@ -105,24 +107,24 @@
             }
         }
 
-        function destroy(id) {
-            $.ajax({
-                type: "POST",
-                url: "{{ route('socials.delete') }}",
-                data: {
-                    _token: "{{ csrf_token() }}",
-                    id: id
-                },
-                success: (response) => {
-                    if (response.code === 204){
-                        toastr.success(response.message);
-                        getList()
-                    } else {
-                        toastr.warning(response.message)
-                    }
-                }
-            })
-        }
+        {{--function destroy(id) {--}}
+        {{--    $.ajax({--}}
+        {{--        type: "POST",--}}
+        {{--        url: "{{ route('socials.delete') }}",--}}
+        {{--        data: {--}}
+        {{--            _token: "{{ csrf_token() }}",--}}
+        {{--            id: id--}}
+        {{--        },--}}
+        {{--        success: (response) => {--}}
+        {{--            if (response.code === 204){--}}
+        {{--                toastr.success(response.message);--}}
+        {{--                getList()--}}
+        {{--            } else {--}}
+        {{--                toastr.warning(response.message)--}}
+        {{--            }--}}
+        {{--        }--}}
+        {{--    })--}}
+        {{--}--}}
 
         function submit() {
             $.ajax({
@@ -130,9 +132,9 @@
                 url: "{{ route('socials.store') }}",
                 data: {
                     _token: "{{ csrf_token() }}",
-                    id: $('#skillId').val(),
-                    name: $('#name').val(),
-                    active: $('#active').prop('checked'),
+                    id: $('#socialId').val(),
+                    icon:$('#icon').val(),
+                    link: $('#link').val(),
                 },
                 success: (response) => {
                     if (response.code === 202) {
