@@ -34,12 +34,12 @@
         </div>
         <div class="form-group col-md-4 col-sm-2 col-4">
             <label for="floor">Floor</label>
-            <input type="text" class="form-control" name="floor" id="floor" placeholder="Floor"
+            <input type="number" class="form-control" name="floor" id="floor" placeholder="Floor"
                    @if(isset($user->floor)) value="{{ $user->floor }}" @endif>
         </div>
         <div class="form-group col-md-4 col-sm-2 col-4">
             <label for="street">Street</label>
-            <input type="text" class="form-control" name="street" id="street" placeholder="Street"
+            <input type="number" class="form-control" name="street" id="street" placeholder="Street"
                    @if(isset($user->street)) value="{{ $user->street }}" @endif>
         </div>
         <div class="form-group col-md-4 col-sm-2 col-4">

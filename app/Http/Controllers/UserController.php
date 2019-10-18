@@ -27,7 +27,7 @@ class UserController extends ParentController
     {
         $user = $this->service->getById(Auth::user()->getAuthIdentifier());
         if ($user instanceof $this->model) {
-            toastSuccess('Success get user');
+//            toastSuccess('Success get user');
             return view('pages.profiles.index',[
                 'user' => $user,
             ]);
@@ -59,10 +59,10 @@ class UserController extends ParentController
             if ($userObject instanceof $this->model) {
                 $userObject->update($input);
                 DB::commit();
-                return success_update($userObject, 'User');
+                return success_update($userObject);
             } else {
                 DB::rollBack();
-                return error_notFound('user');
+                return error_notFound('User');
             }
         } catch (ValidationException $validate) {
             DB::rollBack();
@@ -88,7 +88,7 @@ class UserController extends ParentController
             $user->update([
                 'avatar' => $avatarName
             ]);
-            return success_update($userAvatar, 'avatar');
+            return success_update($userAvatar);
         }
         return error_notFound('User');
     }
