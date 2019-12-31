@@ -65,8 +65,8 @@
                             "<td>" + certificate.from + "</td>" +
                             "<td><a href='" + certificate.link + "' target='_blank'>" + certificate.link + "</a></td>" +
                             "<td class='action' style='display: inline-flex'>" +
-                            "<button class='btn btn-sm btn-warning' data-toggle='modal' data-target='#Modal' onclick='action(this.value," + certificate.id + ")' value='edit'>Edit</button>&nbsp;" +
-                            "<button class='btn btn-sm btn-danger' onclick='destroy(" + certificate.id + ")'>Delete</button>" +
+                            "<button class='btn btn-sm btn-outline-warning' data-toggle='modal' data-target='#Modal' onclick='action(this.value," + certificate.id + ")' value='edit'><i class='far fa-edit'></i></button>&nbsp;" +
+                            "<button class='btn btn-sm btn-outline-danger' onclick='destroy(" + certificate.id + ")'><i class='far fa-trash-alt'></i></button>" +
                             "</td>" +
                             "</tr>"
                         )

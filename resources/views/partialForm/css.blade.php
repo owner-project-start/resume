@@ -3,9 +3,8 @@
 <link rel="stylesheet" href="{{ asset('css/img.css') }}">
 <link rel="stylesheet" href="{{ asset('css/form.css') }}">
 <link rel="stylesheet" href="{{ asset('node_modules/animate.css/animate.min.css') }}">
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
 <link href="{{ asset('node_modules/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Lobster|Monoton|Playball&display=swap" rel="stylesheet">
 @toastr_css
 
 <style>
@@ -14,12 +13,12 @@
         letter-spacing: 1px;
     }
     body label{
-        font-family: 'Lobster', sans-serif;
+        font-family: 'Playball', cursive;
         letter-spacing: 1px;
     }
 
     body thead{
-        font-family: 'Lobster', sans-serif;
+        font-family: 'Playball', cursive;
         letter-spacing: 1px;
     }
 
@@ -28,7 +27,7 @@
     }
 
     .toast-message {
-        font-family: 'Lobster', sans-serif;
+        font-family: 'Playball', cursive;
         letter-spacing: 1px;
     }
 </style>

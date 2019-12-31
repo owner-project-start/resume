@@ -20,9 +20,9 @@ label {
 }
 
 .header {
-    font-family: 'Lobster', sans-serif;
+    font-family: 'Monoton', cursive;
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 300;
     letter-spacing: 4px;
     text-align: center;
     color: #f35626;
@@ -33,53 +33,53 @@ label {
 }
 
 .sub-header {
-    font-family: 'Lobster', sans-serif;
+    font-family: 'Playball', cursive;
     font-size: 1.2rem;
     font-weight: 600;
-    letter-spacing: 1px;
-    text-align: center;
-    color: #f35626;
-    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-animation: hue 0s infinite linear;
+    /*letter-spacing: 1px;*/
+    /*text-align: center;*/
+    /*color: #f35626;*/
+    /*background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);*/
+    /*-webkit-background-clip: text;*/
+    /*-webkit-text-fill-color: transparent;*/
+    /*-webkit-animation: hue 0s infinite linear;*/
 }
 
 .c-title {
-    font-family: 'Lobster', sans-serif;
+    font-family: 'Playball', cursive;
     font-size: 2rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-align: center;
-    color: #f35626;
-    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-animation: hue 5s infinite linear;
+    /*font-weight: 600;*/
+    /*letter-spacing: 1px;*/
+    /*text-align: center;*/
+    /*color: #f35626;*/
+    /*background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);*/
+    /*-webkit-background-clip: text;*/
+    /*-webkit-text-fill-color: transparent;*/
+    /*-webkit-animation: hue 5s infinite linear;*/
 }
 
 body a{
-    font-family: 'Lobster', sans-serif;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-align: center;
-    color: #f35626;
-    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-animation: hue 5s infinite linear;
+    font-family: 'Playball', cursive;
+    /*font-weight: 300;*/
+    /*letter-spacing: 1px;*/
+    /*text-align: center;*/
+    /*color: #f35626;*/
+    /*background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);*/
+    /*-webkit-background-clip: text;*/
+    /*-webkit-text-fill-color: transparent;*/
+    /*-webkit-animation: hue 5s infinite linear;*/
 }
 
 body button{
-    font-family: 'Lobster', sans-serif;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-align: center;
-    color: #f35626;
-    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-animation: hue 5s infinite linear;
+    font-family: 'Playball', cursive;
+    /*font-weight: 600;*/
+    /*letter-spacing: 1px;*/
+    /*text-align: center;*/
+    /*color: #f35626;*/
+    /*background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);*/
+    /*-webkit-background-clip: text;*/
+    /*-webkit-text-fill-color: transparent;*/
+    /*-webkit-animation: hue 5s infinite linear;*/
 }
 
 .active {

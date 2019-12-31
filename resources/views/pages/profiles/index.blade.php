@@ -14,8 +14,8 @@
              class="gambar img-responsive img-thumbnail rounded-circle"
              id="item-img" alt="avatar" width="50">
     @endif
-    <button type="button" id="changeImage" class="btn btn-sm btn-success">
-        Image
+    <button type="button" id="changeImage" class="btn btn-sm btn-outline-success">
+        <i class="fas fa-image"></i>
     </button>
 @endsection
 
@@ -29,10 +29,10 @@
                 @include('pages.profiles.form')
                 <div class="row">
                     <div class="col-md-6">
-                        <button type="button" class="btn btn-block btn-primary" onclick="update()">Update Profile</button>
+                        <button type="button" class="btn btn-block btn-outline-primary" onclick="update()">Update Profile</button>
                     </div>
                     <div class="col-md-6">
-                        <a href="{{ route('index') }}" class="btn btn-block btn-danger">Cancel</a>
+                        <a href="{{ route('index') }}" class="btn btn-block btn-outline-danger">Cancel</a>
                     </div>
                 </div>
             </form>
@@ -52,8 +52,8 @@
                     <div id="upload-demo" class="center-block"></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" id="cropImageBtn" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-sm btn-outline-default" data-dismiss="modal">Close</button>
+                    <button type="button" id="cropImageBtn" class="btn btn-sm btn-outline-primary">Save</button>
                 </div>
             </div>
         </div>
