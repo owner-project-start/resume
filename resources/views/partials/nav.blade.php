@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none">Clarence Taylor</span>
+        <span class="d-block d-lg-none text-uppercase">{{ $user->full_name }}</span>
         <span class="d-none d-lg-block">
         @if(isset($user->avatar))
                 <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{$user->avatar}}" alt="avatar">
@@ -33,10 +33,12 @@
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
             </li>
-            <li data-v-718c1925="" class="nav-item">
-                <a data-v-718c1925="" href="{{ route('profile') }}" class="nav-link js-scroll-trigger">
-                    All right reserve @ 2019
-                </a>
+            <li class="nav-item">
+                <small>
+                    <a href="{{ route('profile') }}" class="nav-link js-scroll-trigger">
+                        All right reserve @ {{ \Carbon\Carbon::now()->format('Y') }}
+                    </a>
+                </small>
             </li>
         </ul>
     </div>
