@@ -1,0 +1,82 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "8088:80"
+    volumes:
+      - ./:/var/www/html/resume
+      - ./docker-compose/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - webserver
+      - postgres
+    networks:
+      - app-network
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    ports:
+      - "54320:5432"
+    environment:
+      POSTGRES_DB: resume
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    networks:
+      - app-network
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "6060:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: root@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - app-network
+#  postgres:
+#    container_name: postgres
+#    image: postgres:11-alpine
+#    restart: always
+#    ports:
+#      - "54321:5432"
+#    environment:
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: postgres
+#      POSTGRES_DATABASE: resume
+#      #SERVICE_TAG: pgsql_db_dev
+#      #SERVICE_NAME: pgsql_db
+#    networks:
+#      - app-network
+#    healthcheck:
+#      test: [ "CMD", "pg_isready", "-U", "postgres" ]
+#      interval: 30s
+#      timeout: 3s
+#      retries: 5
+#    volumes:
+#      - ./db_data:/var/lib/postgresql/data
+  webserver:
+    build: .
+    container_name: resume
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "2020:80"
+      - "4430:443"
+    volumes:
+      - ./:/var/www/html/resume
+      - ./public/node_modules:/var/www/html/resume/public/node_modules
+    networks:
+      - app-network
+volumes:
+  pgadmin-data:
+  dbdata:
+networks:
+  app-network:
+    driver: bridge
